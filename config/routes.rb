@@ -8,5 +8,4 @@ Rails.application.routes.draw do
   resource :deauthorize, only: :show
 
   root "blasts#new"
-
 end
