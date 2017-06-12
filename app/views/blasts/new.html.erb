@@ -1,1 +1,18 @@
-Send new text blast
+<%= form_tag("/blasts", method: :create) do %>
+  <div>
+    <p><strong>Phone number to send from--this must be a number assigned to your Twilio account</strong></p>
+    <%= text_area_tag "sender_number", nil, size: "120x1" %>
+  </div>
+  <div>
+    <p><strong>Phone numbers to send to</strong></p>
+    <%= text_area_tag "recipient_numbers", nil, size: "120x15" %>
+  </div>
+  <div>
+    <p><strong>Body of text message</strong></p>
+    <%= text_area_tag "body", nil, size: "120x5" %>
+  </div>
+  <div>
+    <%= submit_tag "Send" %>
+  </div>
+<%# end %>
+<% end if twilio_connection? %>
