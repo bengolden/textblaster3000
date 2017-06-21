@@ -7,9 +7,9 @@
   </tr>
   <%= @responses.each do |r| %>
     <tr>
-      <td><%= r.from %></td>
-      <td><%= r.body %></td> 
-      <td><%= r.sent %></td>
+      <td><%= r[:from] %></td>
+      <td><%= r[:body] %></td>
+      <td><%= r[:sent] %></td>
       <td><%= link_to "Reply", new_blast_path %></td>
     </tr>
   <% end %>
