@@ -1,0 +1,16 @@
+<table>
+  <tr>
+    <th>From</th>
+    <th>Message</th> 
+    <th>Sent at</th>
+    <th></th>
+  </tr>
+  <%= responses.each do |r| %>
+    <tr>
+      <td><%= r.from %></td>
+      <td><%= r.body %></td> 
+      <td><%= r.sent %></td>
+      <td><%= link_to "Reply", new_blast_path %></td>
+    </tr>
+  <% end %>
+</table>
