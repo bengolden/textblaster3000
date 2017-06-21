@@ -1,5 +1,8 @@
 class BlastsController < ApplicationController
   def new
+    auth_token = Rails.application.secrets.twilio_auth_token
+    client = Twilio::REST::Client.new(session[:sid], auth_token)
+    @available_phone_numbers = client.account.incoming_phone_numbers.list.map(&:phone_number)
   end
 
   def create

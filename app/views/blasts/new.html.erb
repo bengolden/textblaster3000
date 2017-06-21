@@ -1,7 +1,8 @@
 <%= form_tag("/blasts", method: :create) do %>
   <div>
-    <p><strong>Phone number to send from--this must be a number assigned to your Twilio account</strong></p>
-    <%= text_area_tag "sender_number", nil, size: "120x1" %>
+    <p><strong>Phone number to send from</strong></p>
+    <%= select_tag "sender_number",
+                   @available_phone_numbers.map{|num| "<option>#{num}</option>" }.join("").html_safe %>
   </div>
   <div>
     <p><strong>Phone numbers to send to</strong></p>
@@ -14,5 +15,4 @@
   <div>
     <%= submit_tag "Send" %>
   </div>
-<%# end %>
 <% end if twilio_connection? %>
