@@ -12,12 +12,14 @@ class BlastsController < ApplicationController
     recipient_numbers.each do |number|
       client.messages.create(from: sender_number, to: number, body: body)
     end
+
+    redirect_to root_path
   end
 
   private
 
   def extract_recipient_numbers(string)
-    string.split(/\s*,\s*/).select{|num|num.match(/1?\d{3}\D?\d{3}\D?\d{4}/)}
+    string.split(/\s*,\s*/).select{|num|num.match(/1?\d{3}\D?\d{3}\D?\d{4}/)}.uniq
   end
 
 end
