@@ -1,5 +1,6 @@
 class AuthorizesController < ApplicationController
   def show
+    logger.info params.inspect
     session[:sid] = params['AccountSid']
     purchase_phone_number_if_needed
     redirect_to root_path
