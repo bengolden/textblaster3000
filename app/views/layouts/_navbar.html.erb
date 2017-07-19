@@ -1,3 +1,9 @@
-<%= link_to "",
-           "https://www.twilio.com/authorize/CN332bd3aa4233cc36603076c995401727",
-           id: "twilio-connect-button" unless twilio_connection? %>
+<% if twilio_connect? %>
+  <div id="navbar">
+    <%= link_to "Create new message blast", new_blast_path %>
+    <%= link_to "View responses", responses_path %>
+<% else %>
+  <%= link_to "",
+              "https://www.twilio.com/authorize/CN332bd3aa4233cc36603076c995401727",
+              id: "twilio-connect-button" %>
+<% end %>
