@@ -1,14 +1,12 @@
 class BlastsController < ApplicationController
   def new
     if session[:sid].present?
-      auth_token = Rails.application.secrets.twilio_auth_token
       client = Twilio::REST::Client.new(session[:sid], auth_token)
       @available_phone_numbers = client.account.incoming_phone_numbers.list.map(&:phone_number)
     end
   end
 
   def create
-    auth_token = Rails.application.secrets.twilio_auth_token
     client = Twilio::REST::Client.new(session[:sid], auth_token)
     recipient_numbers = extract_recipient_numbers(params[:recipient_numbers])
     sender_number = params[:sender_number]
