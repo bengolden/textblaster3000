@@ -6,7 +6,7 @@
   </div>
   <div>
     <p><strong>Phone numbers to send to</strong></p>
-    <%= text_area_tag "recipient_numbers", nil, size: "120x15" %>
+    <%= text_area_tag "recipient_numbers", params[:to], size: "120x15" %>
   </div>
   <div>
     <p><strong>Body of text message</strong></p>

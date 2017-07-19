@@ -10,7 +10,7 @@
       <td><%= r[:from] %></td>
       <td class="body-column"><%= r[:body] %></td>
       <td><%= r[:sent] %></td>
-      <td><%= link_to "Reply", new_blast_path %></td>
+      <td><%= link_to "Reply", new_blast_path(to: r[:from]) %></td>
     </tr>
   <% end %>
 </table>
