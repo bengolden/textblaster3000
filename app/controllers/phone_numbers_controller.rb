@@ -4,7 +4,7 @@ class PhoneNumbersController < ApplicationController
     @phone_number_count = current_client.account.incoming_phone_numbers.list.length
     logger.info permitted_params.inspect
     if !permitted_params[:country]
-      @countries = available_phone_numbers.map(&:country)
+      @countries = available_phone_numbers.map(&:country).reverse
     elsif !permitted_params[:area_code]
       @select_area_code = true
     else
