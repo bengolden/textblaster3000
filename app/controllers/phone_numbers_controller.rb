@@ -2,7 +2,7 @@ class PhoneNumbersController < ApplicationController
 
   def new
     @phone_number_count = current_client.account.incoming_phone_numbers.list.length
-    logger.info params.inspect
+    logger.info permitted_params.inspect
     if !permitted_params[:country]
       @countries = available_phone_numbers.map(&:country)
     elsif !permitted_params[:area_code]
@@ -10,6 +10,8 @@ class PhoneNumbersController < ApplicationController
     else
       @available_numbers = available_phone_numbers.find{|c| c.country == "United States"}.local.list(area_code: permitted_params[:area_code]).map(&:phone_number)
     end
+
+    logger.info @countries.inspect
   end
 
   def create
