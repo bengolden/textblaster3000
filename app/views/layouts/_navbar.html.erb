@@ -2,6 +2,9 @@
   <div id="navbar">
     <%= link_to "Create new message blast", new_blast_path %>
     <%= link_to "View responses", responses_path %>
+    <%= link_to "Purchase new phone number", new_phone_number_path %>
+    <%= link_to "Logout", deauthorize_path %>
+  </div>
 <% else %>
   <%= link_to "",
               "https://www.twilio.com/authorize/CN332bd3aa4233cc36603076c995401727",

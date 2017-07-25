@@ -2,6 +2,7 @@ class BlastsController < ApplicationController
   def new
     if session[:sid].present?
       @available_phone_numbers = current_client.account.incoming_phone_numbers.list.map(&:phone_number)
+      redirect_to new_phone_number_path if @available_phone_numbers.empty?
       @to = params[:to]
     end
   end
