@@ -3,6 +3,6 @@
   <p>You must create a new phone number to send message blasts.</p>
 <% end %>
 
-<% render "select_country" if @countries %>
-<% render "select_area_code" if @select_area_code %>
-<% render "select_number" if @available_numbers.present? %>
+<% render partial: "select_country" if @countries %>
+<% render partial: "select_area_code" if @select_area_code %>
+<% render partial: "select_number" if @available_numbers.present? %>
