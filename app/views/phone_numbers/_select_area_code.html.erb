@@ -4,6 +4,6 @@
   <%= form_tag(new_phone_number_path, method: :get) do %>
     <%= hidden_field_tag "country", params[:country] %>
     <%= text_field_tag "area_code" %>
-    <%= submit_tag %>
+    <%= submit_tag "continue" %>
   <% end %>
 </div>

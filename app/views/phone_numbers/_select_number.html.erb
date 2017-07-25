@@ -4,7 +4,7 @@
   <ul>
     <% @available_numbers.each do |number| %>
       <li>
-        <%= link_to number, phone_numbers_path(method: :post, number: number) %>
+        <%= link_to(number, phone_numbers_path(number: number), method: :post) %>
       </li>
     <% end %>
   </ul>
