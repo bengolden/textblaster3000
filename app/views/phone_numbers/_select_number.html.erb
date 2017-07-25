@@ -1,0 +1,11 @@
+<div>
+  Select a number:
+
+  <ul>
+    <% @available_numbers.each do |number| %>
+      <li>
+        <%= link_to number, phone_numbers_path(method: :post, number: number) %>
+      </li>
+    <% end %>
+  </ul>
+</div>

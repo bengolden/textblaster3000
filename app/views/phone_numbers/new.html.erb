@@ -1,0 +1,8 @@
+<p>Your account currently has <%= @phone_number_count %> available phone numbers.</p>
+<% if @phone_number_count == 0 %>
+  <p>You must create a new phone number to send message blasts.</p>
+<% end %>
+
+<% render "select_country" if @countries %>
+<% render "select_area_code" if @select_area_code %>
+<% render "select_number" if @available_numbers.present %>

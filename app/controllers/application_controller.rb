@@ -4,4 +4,10 @@ class ApplicationController < ActionController::Base
   def auth_token
     Rails.application.secrets.twilio_auth_token
   end
+
+  def current_client
+    return nil unless session[:sid]
+    @current_client ||= Twilio::REST::Client.new session[:sid], auth_token
+  end
+
 end

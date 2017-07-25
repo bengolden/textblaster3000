@@ -1,0 +1,11 @@
+<div>
+  Select a country:
+
+  <ul>
+    <% @countries.each do |country| %>
+      <li>
+        <%= link_to country, new_phone_number_path(country: country) %>
+      </li>
+    <% end %>
+  </ul>
+</div>

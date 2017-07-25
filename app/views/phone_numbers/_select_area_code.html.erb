@@ -1,0 +1,9 @@
+<div>
+  Choose a preferred area code.
+
+  <%= form_tag new_phone_number_path do %>
+    <%= hidden_field_tag "country", params[:country] %>
+    <%= text_field_tag "area_code" %>
+    <%= submit_tag %>
+  <% end %>
+</div>
