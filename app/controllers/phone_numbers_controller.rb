@@ -2,8 +2,9 @@ class PhoneNumbersController < ApplicationController
 
   def new
     @phone_number_count = current_client.account.incoming_phone_numbers.list.length
+    logger.info params.inspect
     if !params[:country]
-      @countries = available_phone_numbers.map(&:country) unless params[:country]
+      @countries = available_phone_numbers.map(&:country)
     elsif !params[:area_code]
       @select_area_code = true
     else
