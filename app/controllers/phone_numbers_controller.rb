@@ -15,7 +15,7 @@ class PhoneNumbersController < ApplicationController
   end
 
   def create
-    phone_number = client.incoming_phone_numbers.create(phone_number: permitted_params[:number])
+    phone_number = current_client.incoming_phone_numbers.create(phone_number: permitted_params[:number])
     if phone_number.sms_url.blank?
       phone_number.update(sms_url: "http://textblaster3000.herokuapp.com/tos", sms_method: "GET")
     end
